@@ -13,9 +13,9 @@ HEADER_DIR = inc/
 HEADER_LIST= disasm.h op.h
 HEADER = $(addprefix $(HEADER_DIR), $(HEADER_LIST))
 
-LIBFT_H = libft/includes/
-LIBFT_SRC = libft
-LIBFT = libft/libft.a
+LIBFT_H = ../libft/includes/
+LIBFT_SRC = ../libft
+LIBFT = ../libft/libft.a
 
 RED = "\033[0;31m"
 GREEN = "\033[0;32m"

@@ -1,6 +1,6 @@
 NAME = project
 
-PROJECT_PART_PATHS = disaasm
+PROJECT_PART_PATHS = libft disasm
 
 $(NAME):
 	@for i in $(PROJECT_PART_PATHS); do \
