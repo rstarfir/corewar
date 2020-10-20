@@ -15,41 +15,41 @@ t_uchar	arg_byte(t_uchar opc, t_uchar arg)
 	return (0);
 }
 
-void	parse_argument_2_4_bytes(t_var *v)
+void	parse_argument_2_4_bytes(t_var *data)
 {
-	if (g_op_tab[v->opc - 1].t_dir_short)
+	if (g_op_tab[data->opc - 1].t_dir_short)
 	{
-		v->r = read(v->fd, &v->sh, 2);
-		v->champ_size -= 2;
-		v->sh = reverse_byte_by_byte_short(v->sh);
-		ft_printf("%%%hd", v->sh);
+		data->r = read(data->fd, &data->sh, 2);
+		data->champ_size -= 2;
+		data->sh = reverse_byte_by_byte_short(data->sh);
+		ft_printf("%%%hd", data->sh);
 	}
 	else
 	{
-		v->r = read(v->fd, &v->ui, 4);
-		v->ui = reverse_byte_by_byte_int(v->ui);
-		v->champ_size -= 4;
-		ft_printf("%%%u", v->ui);
+		data->r = read(data->fd, &data->ui, 4);
+		data->ui = redataerse_byte_by_byte_int(data->ui);
+		data->champ_size -= 4;
+		ft_printf("%%%u", data->ui);
 	}
 }
 
 
-void	parse_argument(t_var *v, t_uchar arg_type, t_bool comma)
+void	parse_argument(t_var *data, t_uchar arg_type, t_bool comma)
 {
 	if (arg_type == 1)
 	{
-		v->r = read(v->fd, &v->uc, 1);
-		v->champ_size--;
-		ft_printf("r%hhu", v->uc);
+		data->r = read(data->fd, &data->uc, 1);
+		data->champ_size--;
+		ft_printf("r%hhu", data->uc);
 	}
 	else if (arg_type == 3)
 	{
-		v->r = read(v->fd, &v->sh, 2);
-		v->champ_size -= 2;
-		ft_printf("%hd", reverse_byte_by_byte_short(v->sh));
+		data->r = read(data->fd, &data->sh, 2);
+		data->champ_size -= 2;
+		ft_printf("%hd", reverse_byte_by_byte_short(data->sh));
 	}
 	else if (arg_type == 2 || arg_type == 4)
-		parse_argument_2_4_bytes(v);
+		parse_argument_2_4_bytes(data);
 	if (comma)
 		ft_printf(", ");
 	else
