@@ -27,7 +27,7 @@ void	parse_argument_2_4_bytes(t_var *data)
 	else
 	{
 		data->r = read(data->fd, &data->ui, 4);
-		data->ui = redataerse_byte_by_byte_int(data->ui);
+		data->ui = reverse_byte_by_byte_int(data->ui);
 		data->champ_size -= 4;
 		ft_printf("%%%u", data->ui);
 	}
