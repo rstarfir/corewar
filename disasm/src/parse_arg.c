@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_arg.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstarfir <rstarfir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/22 16:26:46 by rstarfir          #+#    #+#             */
+/*   Updated: 2020/10/22 16:31:46 by rstarfir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "disasm.h"
 
 t_uchar	arg_byte(t_uchar opc, t_uchar arg)
@@ -32,7 +44,6 @@ void	parse_argument_2_4_bytes(t_var *data)
 		ft_printf("%%%u", data->ui);
 	}
 }
-
 
 void	parse_argument(t_var *data, t_uchar arg_type, t_bool comma)
 {

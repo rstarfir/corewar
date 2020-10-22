@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   disasm.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstarfir <rstarfir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/22 16:24:59 by rstarfir          #+#    #+#             */
+/*   Updated: 2020/10/22 16:28:02 by rstarfir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DISASM_H
 # define DISASM_H
 # include <fcntl.h>
@@ -27,7 +39,6 @@ typedef	struct	s_var
 	t_uint		champ_size;
 	t_uchar		bt;
 }				t_var;
-
 
 t_uint			reverse_byte_by_byte_int(t_uint num);
 t_ushort		reverse_byte_by_byte_short(t_ushort num);

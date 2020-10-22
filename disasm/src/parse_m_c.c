@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_m_c.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstarfir <rstarfir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/22 16:26:52 by rstarfir          #+#    #+#             */
+/*   Updated: 2020/10/22 16:41:30 by rstarfir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "disasm.h"
 
-t_bool	parse_magic_header(t_var *data)
+t_bool		parse_magic_header(t_var *data)
 {
 	unsigned int	mag;
 
@@ -14,7 +26,7 @@ t_bool	parse_magic_header(t_var *data)
 	return (tru);
 }
 
-void	parse_champ_name(t_var *data, t_header *file)
+void		parse_champ_name(t_var *data, t_header *file)
 {
 	int i;
 
@@ -33,11 +45,11 @@ void	parse_champ_name(t_var *data, t_header *file)
 	ft_printf(".name \"%s\"\n", file->prog_name);
 }
 
-t_bool	parse_champ_size(t_var *data)
+t_bool		parse_champ_size(t_var *data)
 {
 	data->r = read(data->fd, &data->champ_size, 4);
 	data->champ_size = reverse_byte_by_byte_int(data->champ_size);
-	if (data->champ_size >= CHAMP_MAX_SIZE)
+	if (data->champ_size >= MEM_SIZE)
 	{
 		ft_putendl_fd("ERROR: instructions for champion exceed 682 bytes.", 2);
 		return (fals);
@@ -45,8 +57,7 @@ t_bool	parse_champ_size(t_var *data)
 	return (tru);
 }
 
-
-void	parse_champ_comment(t_var *data, t_header *file)
+void		parse_champ_comment(t_var *data, t_header *file)
 {
 	int i;
 
